@@ -1,0 +1,50 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="banner">
+	<div class="title-text">
+		{{entry.banner.bannertitle}}
+	</div>
+	<div class="title2-text">
+		{{entry.banner.bannertitle_2}}
+	</div>
+	<div class="sub-title">
+		{{entry.banner.bannersubtitle}}
+	</div>
+	<div class="banner-bg">
+		
+	</div>
+	<div class="get-started-btn">
+			<button class="gs">Get Started Now</button>
+		</div>
+	</div>
+	<div class="crane-div">
+		<div class="crane-title">
+			{{entry.cranedivgroup.cranetitle}}
+		</div>
+		<div class="crane-list-div">
+			<ul class="crane-list-ul">
+			{% for crane in entry.cranedivgroup.group.cranelist %}
+				<li>{{crane}}</li>
+			{% endfor %}
+				
+			</ul>
+		</div>
+
+
+		<div class="crane-img">
+			<img class="img-responsive" src="{{getAssetUrl(entry.cranedivgroup.craneimage)}}">
+		</div>
+
+	</div>
+	<div class="watch-video-div">
+		
+		<div class="watch-text">
+			{{entry.watchvideogroup.watchvideotext}}
+		</div>
+	</div>
+
+
+</div>
+{% endblock %}

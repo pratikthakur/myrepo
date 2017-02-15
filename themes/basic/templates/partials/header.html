@@ -1,0 +1,59 @@
+{# If you have a "Content Type" for header in Built.io Contentstack then use get() view helper to retrieve header entry. #}
+{# e.g. set header = get("header_content_type_id") #}
+{# And then render header values using the {{header.field_name}} #}
+{% set url = entry.url %}
+
+{% if url == "/pronq_pricing" %}
+<div class="header ">
+	<div class="container ">
+		<div class="pronqlogo"> 
+			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+		</div>
+		<div class="questionimg">
+				<img class="question-img-tag"  src="{{getAssetUrl(entry.headergroup.questionimg)}}">
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% if url == "/price_landing" %}
+<div class="header ">
+	<div class="container ">
+		<div class="pronqlogo"> 
+			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+		</div>
+		<div class="header-nav-bar">
+			<ul class="header-nav-ul">
+			{% for menuval in entry.headergroup.menuitemgroup.menuitem %}
+				<li>{{menuval}}</li>
+			{% endfor %}		
+			</ul>			
+		</div>
+		<div class="header-sign-in">
+			<span class="sign">{{entry.headergroup.signingroup.signintext}}</span><span class="icon"><img src="{{getAssetUrl(entry.headergroup.signingroup.usericon)}}"></span>
+		</div>
+		<div class="header-search">
+			<input class="txtbox" type="text">
+		</div>
+		<div class="questionimg">
+				<img class="question-img-tag"  src="{{getAssetUrl(entry.headergroup.questionimg)}}">
+		</div>
+	</div>
+</div>
+{% endif %}
+
+
+{% if url == "/market_landing" or url == "/page_vertica" %}
+<div class="header">
+	<div class="container">
+		<div class="pronqlogo"> 
+			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+		</div>
+
+		<div class="header-sign-in-marketing">
+			<span class="sign">{{entry.headergroup.sigintext}}</span>
+			<span class="free-acount-span"><button class="create-free-btn">{{entry.headergroup.btntext}}</button></span>
+		</div>
+	</div>
+</div>
+{% endif %}

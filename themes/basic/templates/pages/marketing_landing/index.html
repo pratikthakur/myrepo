@@ -1,0 +1,112 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="container"> 
+<div class="marketing-banner">
+
+			<div class="marketing-banner-text">{{entry.bannergroup.bannertext}}</div>
+			<div class="banner-img"></div>
+			<div class="marketing-banner-small-text" >{{entry.bannergroup.bannersmalltext}}</div>
+			<div class="toggle-button"><div class="down-arrow" data-toggle="collapse" data-target="#tg"></div></div>
+			<div id="tg" class="toggle-div collapse">
+				<div class="toggle-upper-div">Build trustworthy applications</div>
+				<div class="toggle-small-text">We will work with you — whatever and wherever your business is</div>
+
+
+				<div class="toggle-list-div">
+					<ul class="toggle-list">
+					{% for toggleval in entry.togglediv.togglecontent %}
+						<li>
+							<div class="togg-img">
+								<img src="{{getAssetUrl(toggleval.file)}}">
+							</div>
+							<div class="togg-title">{{toggleval.toggletitle}}</div>
+							<div class="togg-desc">{{toggleval.toggledesc}}</div>
+						</li>
+					{% endfor %}
+					</ul>
+				</div>
+			
+			</div>
+
+	</div>
+
+</div>
+<div class="container"> 
+<div class="lower" >
+	
+		<div class="lower-div-1">
+			<h2>So what's in it for you?</h2>
+		</div>
+		<div class="lower-div-2">
+			<p>Here are a few benefits of the program</p>
+		</div>
+		<div class="marketing-grid-div">
+			{% for gridval in entry.gridgroup %}
+				<div class="grid-div">
+				<div class="front-div">
+					<div class="grid-title">{{gridval.girdtitle}}</div>
+					<div class="grid-image"><img src="{{getAssetUrl(gridval.gridimage)}}"></div>
+					<div class="grid-bottom-text">{{gridval.gridbottomtext}}
+					<span class="grid-plus-sign">{{gridval.gridplus}}</span>
+					</div>
+				</div>
+				<div class="back-div">
+					<div class="back-div-text">{{gridval.baackdivtext}}</div>
+					<div class="close-text">{{gridval.backdivclose}}<span class="cross">{{gridval.backdivcross}}</span>
+					</div>
+				</div>
+
+				</div>
+			{% endfor %}
+	
+	
+		</div>
+		<div class="partner-with-us-div">
+		<div class="pws-btn"><button class="btn-pws">{{entry.partner_btn}}</button></div>
+		</div>
+	</div>
+
+	<div class="marketing-bottom-div">
+		<div class="fast-simple-text">Fast, simple and flexible makes our customers happy</div>
+		<div class="see-what-text">See what our partners are saying about this program</div>
+	</div>
+
+	<div class="marketing-logos">
+		<ul class="marketing-logo-ul">
+		{% for logoval in entry.marketinglogo.logo %}
+			<li><img src="{{getAssetUrl(logoval)}}" data-toggle="tooltip"></li>
+		{% endfor %}
+		</ul>
+	</div>
+	<div class="marketing-info-div">
+
+		<div class="info-div"><div class="pointed-triangle"></div>
+			<div class="img-span">
+				<span class="commas"><img src="{{getAssetUrl(entry.infodiv.commaimg)}}"></span>
+			</div>
+			<div class="info-text">	
+
+			“Working with a broad base of customers, Avnet Technology Solutions sees a significant market need for a mobile development platform to address enterprise BYOD initiatives as organizations are realizing the internal need for developing, managing and deploying secure mobile apps to their mobile workforce.  By participating in the HP Anywhere Partner Program, we are able to expand our market opportunities by addressing enterprise mobility initiatives with comprehensive software — application lifecycle tools — and services solutions to complement the HP Anywhere platform and capabilities.”<br><br>
+			<i>— Alex Ryals, vice president, pre-sales and solutions development for<br>
+	     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avnet Services in the Americas</i></div>
+		</div>
+
+		<div class="info-div-2"><div class="pointed-triangle-2"></div>
+			<div class="img-span">
+				<span class="commas"><img src="{{getAssetUrl(entry.infodiv.commaimg)}}"></span>
+			</div>
+			<div class="info-text">	
+			
+			“Working with a broad base of customers, Avnet Technology Solutions sees a significant market need for a mobile development platform to address enterprise BYOD initiatives as organizations are realizing the internal need for developing, managing and deploying secure mobile apps to their mobile workforce.  By participating in the HP Anywhere Partner Program, we are able to expand our market opportunities by addressing enterprise mobility initiatives with comprehensive software — application lifecycle tools — and services solutions to complement the HP Anywhere platform and capabilities.”<br><br>
+			<i>— Alex Ryals, vice president, pre-sales and solutions development for<br>
+	     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avnet Services in the Americas</i></div>
+		</div>
+	</div>
+	<div class="marketing-signup-now">
+		<button class="signup">Signup Now</button>
+	</div>
+	
+</div>
+
+{% endblock %}

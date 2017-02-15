@@ -1,0 +1,108 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="pricing-wrapper">
+<div class="container">
+	
+	<div class="pricing-title">
+		{{entry.titlecontentgroup.pricingtext}}
+	</div>
+	<div class="border-pricing-div"></div>
+	<div class="pricing-title-text">
+		{{entry.titlecontentgroup.titletext}}
+	</div>
+	<div class="pricing-table">
+		
+		<ul class="pricing-table-ul">
+			<li class="pricing-table-li" style="text-align: center;background-color: #ebebeb;font-size: 13px;font-family: Myriad Pro;font-weight: bold; padding-top: 10px;padding-bottom: 7px;padding-left: 110px;">
+			<div class="header-li" style="width:30%;margin-left: auto;margin-right: auto;padding-left:11	0px;">{{entry.pricingtablegroup.pricingtabletext}}</div></li>
+
+			{% for data in entry.tableloopgroup %}
+			<li class="pricing-table-li">
+				<div class="table-image-div">
+					<img src="{{getAssetUrl(data.imagefile)}}">
+				</div>
+				<div class="table-name-div">
+					<span class="name-p">{{data.naemgroup.namefield}}</span><br>
+					<span class="desc-name-p">{{data.naemgroup.namedesc}}</span>
+				</div>
+				<div class="per-month">
+					<span class="per-span">{{data.permonthgroup.per}}</span><span class="month-span">{{data.permonthgroup.month}}</span>
+				</div>
+				<div class="price-btn-div">
+					{% for button in data.buttongroup %}
+					<span class="try-me-btn"><button class="btn-try">{{button.btntryme}}</button></span>
+					<span class="try-me-btn"><button class="btn-contact">{{button.btncontact}}</button></span>
+					{% endfor %}
+					
+				</div>
+			</li>
+			{% endfor %}
+			<!-- <li class="pricing-table-li">s</li>
+			<li class="pricing-table-li">s</li>
+			<li class="pricing-table-li">s</li>
+			<li class="pricing-table-li">s</li>
+			<li class="pricing-table-li">s</li>
+			<li class="pricing-table-li">s</li> -->
+
+		</ul>
+	</div>
+
+	<div class="need-more-help">
+		<span class="nmh-text">{{entry.needmorehelp}}</span><button class="contact-sales-btn">{{entry.contactsalestext}}</button>
+	</div>
+</div>
+	<div class="hp-resource-div">
+		<div class="container">
+		<div class="resource-wrapper">
+			<div class="resource-text">{{entry.resourcegroup.resourcetitle}}</div>
+			<div class="resource-small-text">{{entry.resourcegroup.resourcesmalltext}}</div>
+			<div class="resource-button-div">
+				{% for btn in entry.resourcegroup.resourcebtn.resourcebtntext %}
+					<span class="button-span"><button class="resource-button">{{btn}}</button></span>
+				{% endfor %}
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="bottom-list-div">
+		<div class="container">
+		<div class="bottom-list-wrapper">			
+		
+		<div class="bottom-list-header">
+		{% for myval in entry.bottomlistgroup.group %}
+			<div class="list-products">
+				<div class="header-products">{{myval.title}}</div>
+					<div class="product-list-items">
+					
+						<ul class=  "product-list-ul">
+						{% for contentval in myval.linkgroup %}
+							<li>{{contentval.title}}</li>
+						{% endfor %}
+							
+						</ul>
+					
+					</div>		
+			</div>
+			{% endfor %}
+			
+			
+			<div class="list-connect">
+			<div class="header-connect">{{entry.bottomlistgroup.title}}</div>
+			<div class="product-list-items">
+					<ul class=  "product-list-ul">
+					{% for logoval in entry.bottomlistgroup.logoimggroup.logoimg %}
+						<li class="connect-li"><img src="{{getAssetUrl(logoval)}}"/></li>					
+					{% endfor %}
+					</ul>
+				</div>		
+			</div>
+			
+		</div>
+
+		</div>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
