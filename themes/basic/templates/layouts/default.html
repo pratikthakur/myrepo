@@ -7,8 +7,26 @@
 	 <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/script.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js/toggle.js"></script>
+
     <style type="text/css">
+        .banner-img
+        {
+            background-image: url("{{getAssetUrl(entry.bannergroup.bannerimg)}}");
+        }
+        .hp-resource-div
+        {
+            background-image: url("{{getAssetUrl(entry.resourcegroup.resourcebackground)}}");
+            background-repeat: no-repeat;
+        }
+        .watch-video-div
+        {
+            background-image: url("{{getAssetUrl(entry.watchvideogroup.background)}}");
+        }
+        .marketing-banner
+        {
+            background-image: url("{{getAssetUrl(entry.bannergroup.bannerbackground)}}");
+            
+        }
         .doubledashed
         {   
             background:url("{{getAssetUrl(entry.doubledashed)}}");
