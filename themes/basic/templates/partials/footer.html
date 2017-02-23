@@ -1,5 +1,5 @@
 {# If you have a "Content Type" for footer in Built.io Contentstack then use get() view helper to retrieve footer entry. #}
-{# e.g. set footer = get("footer_content_type_id") #}
+{% set footer = get("footer") %}
 {# And then render footer values using the {{footer.field_name}} #}
 
 {% set url = entry.url %}
@@ -8,10 +8,10 @@
 <div class="footer">
 	<div class="container">
 		<div class="footer-border border-footer">
-			<div class="footer-logo"><img src="{{getAssetUrl(entry.footergroup.footer_logo)}}"></div>
+			<div class="footer-logo"><img src="{{getAssetUrl(footer.footerlogo)}}"></div>
 		</div>
 		<div class="privacy-text">
-			{{entry.footergroup.privacytext}}<span class="copyright">{{entry.footergroup.footercopyright}}</span>
+			{{footer.privacytxt}}<span class="copyright">{{footer.copyright}}</span>
 		</div>
 	</div>
 
@@ -24,10 +24,10 @@
 <div class="footer">
 	<div class="container">
 		<div class="footer-border border-footer">
-			<div class="footer-logo"><img src="{{getAssetUrl(entry.footergroup.footer_logo)}}"></div>
+			<div class="footer-logo"><img src="{{getAssetUrl(footer.footerlogo)}}"></div>
 		</div>
 		<div class="privacy-text">
-			{{entry.footergroup.privacytext}}<span class="copyright">{{entry.footergroup.footercopyright}}</span>
+			{{footer.privacytxt}}<span class="copyright">{{footer.copyright}}</span>
 		</div>
 	</div>
 
@@ -36,20 +36,20 @@
 {% endif %}
 
 
-{% if url == "/market_landing" or url == "/page_vertica" %}
+{% if url == "/market_landing" %}
 
 <div class="footer">
 	<div class="container">
 		<div class="marketing-footer">
 		<div class="privacy-text-marketing">
-			{{entry.footergroup.privacytxt}}
+			{{footer.privacytxt}}
 		</div>
-		<div class="pronqbyhp-span"><span><img src="{{getAssetUrl(entry.footergroup.footerpronq)}}"></span>{{entry.footergroup.pronqbyhp}}</div>
+		<div class="pronqbyhp-span"><span><img src="{{getAssetUrl(footer.marketlogo)}}"></span>{{footer.copyright}}</div>
 			<div class="logos-footer">
 				<ul class="logos-footer-ul">
 
-				{% for footerlog in entry.footergroup.footerimages.footerfile%}
-					<li><img src="{{getAssetUrl(footerlog)}}"></li>
+				{% for footerlog in footer.footerimages.footefile%}
+					<li><a href="javascript:void(0);"><img src="{{getAssetUrl(footerlog)}}"></a></li>
 				
 				{% endfor %}
 				</ul>
@@ -59,3 +59,28 @@
 
 </div>
 {% endif %}
+
+{% if url == "/page_vertica" %}
+
+<div class="footer" style="height:140px;">
+	<div class="container">
+		<div class="vertica-footer">
+		<div class="privacy-text-marketing">
+			{{footer.privacytxt}}
+		</div>
+		<div class="pronqbyhp-span"><span><img src="{{getAssetUrl(footer.marketlogo)}}"></span>{{footer.copyright}}</div>
+			<div class="logos-footer">
+				<ul class="logos-footer-ul">
+
+				{% for footerlog in footer.pageverticafooterlogos.file%}
+					<li><a href="javascript:void(0);"><img src="{{getAssetUrl(footerlog)}}"></a></li>
+				
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+{% endif %}
+

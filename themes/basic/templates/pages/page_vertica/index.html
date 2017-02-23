@@ -1,50 +1,183 @@
 {% extends "layouts/default.html" %}
 
 {% block content %}
-<div class="container">
+
 	<div class="banner">
-	<div class="title-text">
-		{{entry.banner.bannertitle}}
-	</div>
-	<div class="title2-text">
-		{{entry.banner.bannertitle_2}}
-	</div>
-	<div class="sub-title">
-		{{entry.banner.bannersubtitle}}
-	</div>
-	<div class="banner-bg">
-		
-	</div>
-	<div class="get-started-btn">
-			<button class="gs">Get Started Now</button>
+	<div class="container">
+		<div class="title-text">
+			{{entry.banner.bannertitle}}
+		</div>
+		<div class="title2-text">
+			{{entry.banner.bannertitle_2}}
+		</div>
+		<div class="sub-title">
+			{{entry.banner.bannersubtitle}}
 		</div>
 	</div>
-	<div class="crane-div">
-		<div class="crane-title">
-			{{entry.cranedivgroup.cranetitle}}
+		<div class="banner-bg">
+			
 		</div>
-		<div class="crane-list-div">
-			<ul class="crane-list-ul">
-			{% for crane in entry.cranedivgroup.group.cranelist %}
-				<li>{{crane}}</li>
-			{% endfor %}
-				
-			</ul>
+		<div class="get-started-btn">
+				<button class="gs">{{entry.getstartednow}}</button>
+			</div>
 		</div>
+		<div class="container">
+		<div class="crane-div">
+			<div class="crane-title">
+				{{entry.cranedivgroup.cranetitle}}
+			</div>
+			<div class="crane-list-div">
+				<ul class="crane-list-ul">
+				{% for crane in entry.cranedivgroup.group.cranelist %}
+					<li>{{crane}}</li>
+				{% endfor %}
+					
+				</ul>
+			</div>
 
 
-		<div class="crane-img">
-			<img class="img-responsive" src="{{getAssetUrl(entry.cranedivgroup.craneimage)}}">
-		</div>
+			<div class="crane-img">
+				<img class="img-responsive" src="{{getAssetUrl(entry.cranedivgroup.craneimage)}}">
+			</div>
 
 	</div>
+	</div>
+
 	<div class="watch-video-div">
-		
-		<div class="watch-text">
-			{{entry.watchvideogroup.watchvideotext}}
+		<div class="container"> 
+			
+			<div class="watch-text">
+				{{entry.watchvideogroup.watchvideotext}}
+
+				<div class="fb">
+				<img src="{{getAssetUrl(entry.watchvideogroup.fblogo)}}"> <span><i>{{entry.watchvideogroup.fbauthor}}</i></span>
+				</div>
+				<div class="watch-video">
+					<span>{{entry.watchvideogroup.watchvideotxt}}</span>
+					<div class="play-icon"><div class="play-border"><div class="play"></div></div></div>
+				</div>
+			</div>
+			<div class="video-backdrop"></div>
+			<div class="video-player-div">
+			<div class="close-player"></div>
+			<video class="video-player" data-src="{{getAssetUrl(entry.watchvideogroup.videofile)}}" controls>
+					<source src="" type="video/mp4">
+				</video>
+
+			</div>
+			
+			
 		</div>
+	</div>
+	<div class="container">
+		<div class="speed-container">
+			<div class="speed-title">{{entry.speedsimplicitygroup.title}}</div>
+			<div class="speed-subtitle">{{entry.speedsimplicitygroup.subtitle}}</div>
+			<div class="vertica-logo-div">
+				<ul class="vertica-logo-ul">
+					{% for vertica in entry.pageverticalogogroup %}
+					<li id="{{loop.index}}">
+					<div><img src="{{getAssetUrl(vertica.logoicon)}}"></div>
+					</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+			<div class="logo-desc">
+						<div class="logo-pointer"></div>
+
+				<div class="coma-div"><img src="{{getAssetUrl(entry.logodesc.comaimg)}}"></div>
+				<div class="logo-parent-wrapper">
+				{% for log in entry.logodesc.textauthor %}
+					<div id="logo{{loop.index}}" class="logo-text">{{log.logotext}}<br><p style="margin-top: 8px;">{{log.logoauthor}}</p></div>
+				{% endfor %}
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="get-started-btn-div-2">
+				<button class="gs">{{entry.getstartednow}}</button>
+		</div>
+		<div class="vertica-hover-div">
+			<div class="hover-title">
+					{{entry.verticalogotitle}}
+			</div>
+			<div class="hover-subtitle">
+				{{entry.verticalogosubtitle}}
+			</div>
+		</div>
+		
+		<div class="hover-divs">
+			{% for hov in entry.verticalogo %}
+				<div class="on-hover-div">	
+					<div class="front-hover-div">				
+						<img class="myImg img-responsive" src="{{getAssetUrl(hov.verticaimg)}}">				
+					</div>	
+					
+						<div id="back{{loop.index}}" class="back-hover-div">
+							<div class="back-div-title">
+								{{hov.backdivtext}}
+							</div>
+							<div class="back-div-info">
+								{{hov.backdivinfo}}
+							</div>
+						</div>
+					
+				</div>
+				{% endfor %}
+		</div>
+
+		<div class="learn-more-btn-div">
+			<button class="learn-more-btn">Learn More</button>
+		</div>
+		<div class="checkout-media-div">
+			<div class="checkout-media-title">
+				{{entry.checkoutgroup.checkouttitle}}
+			</div>
+			<div class="checkout-animation-div">
+				<div class="animation-wrapper">
+				{% for anim in entry.checkoutgroup.animationgroup%}
+				<div class="animation-wrapper-inner">
+					<div id="anim{{loop.index}}" class="animation-logo">
+					<img src="{{getAssetUrl(anim.animimg )}}">
+					</div>
+					<div id="anim-text{{loop.index}}" class="animation-text-div">{{anim.rich_text_editor}}
+					<div class="pointed-triangle-right"></div></div>
+				</div>
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="one-two-three-div">
+			<div class="one-two-three-title">{{entry.getingstarted123}}</div>
+			<div class="getting-started-div">
+			<div class="doubledashed"></div>
+	
+				<ul class="icons-ul">				
+				{% for icons in entry.iconsgroup %}
+					<li>
+						<div class="icons-border">
+							<img src="{{getAssetUrl(icons.iconsimage)}}">
+							<span class="number-span">{{icons.iconsnumber}}</span>
+						</div>
+						<div class="iconstext"><a class="icon-links" href="javascr	ipt:void(0);">{{icons.iconstext}}</a></div>
+					</li>
+				 {% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="dont-believe-div">
+			<div class="dont-believe-title">Dont Believe Us? Try Us Out!</div>
+			<div class="get-started">
+				<button class="gs">{{entry.getstartednow}}</button>
+			</div>
+		</div>
+
+
 	</div>
 
 
-</div>
+
+
 {% endblock %}

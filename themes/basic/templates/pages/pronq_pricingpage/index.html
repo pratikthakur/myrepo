@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="upper-banner-fortify border-bottom">
 
-		<div class="back-text">{{entry.bannergroup.back}}</div>
+		<div class="back-text"><a style="color:#12a9b2;" href="javascript:void(0);">{{entry.bannergroup.back}}</a></div>
 		<div class="banner-title">{{entry.bannergroup.bannertitle}}</div>
 	</div>
 
@@ -15,7 +15,7 @@
 		{% for data in entry.bannergroup.boxesgroup %}
 			<li class="boxes ">
 				<div class="box-div">
-					<p class="dynamic-text">-------------------{{data.dynamictext}}-------------------</p>
+					<p class="dynamic-text">--------------{{data.dynamictext}}-------------</p>
 					<p class="big-font">{{data.dynamicsubtext}}</p>
 				</div>
 			</li>
@@ -58,64 +58,26 @@
 						</div>
 					</div>
 				</div>
+				{% for rp in entry.table.subgroup %}
 				<div class="right-packages">
 					<div class="express-div">
-						<div class="express-col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Express</div>
+						<div class="express-col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{rp.colheader}}</div>
 
 					</div>
 					<div class="dollar-select-div">
 					<div class="dollar-div">
-						<span class="dollar-sign">399</span>
+						<span class="dollar-sign">{{rp.dollartext}}</span>
 					</div>
 					<div class="contact-btn">
-							<button class="btn-cont">Select</button>
+							<button class="btn-cont">{{rp.buttontext}}</button>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
-				<div class="right-packages">
-				<div class="express-div">
-					<div class="express-col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Basic</div>
-					</div>
-					<div class="dollar-select-div">
-					<div class="dollar-div">
-						<span class="dollar-sign">1,999</span>
-					</div>
-					<div class="contact-btn">
-							<button class="btn-cont">Select</button>
-						</div>
-					</div>
-				</div>
-				<div class="right-packages">
-				<div class="express-div">
-					<div class="express-col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard</div>
-					</div>
-					<div class="dollar-select-div">
-					<div class="dollar-div">
-						<span class="dollar-sign">3,499</span>
-					</div>
-					<div class="contact-btn">
-							<button class="btn-cont">Select</button>
-						</div>
-					</div>
-				</div>
-				<div class="right-packages">
-				<div class="express-div">
-					<div class="express-col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premium</div>
-					</div>
-					<div class="dollar-select-div">
-					<div class="dollar-div">
-						<span class="dollar-sign">8,099</span>
-					</div>
-					<div class="contact-btn">
-							<button class="btn-cont">Select</button>
-						</div>
-					</div>
-				</div>
 				<div class="list-div">
 				
 				<ul class="list-ul">
-					
 					<li>
 						<div class="label-div">Applications Risk Level</div>
 						<div class="header-div">Low</div>
@@ -123,106 +85,143 @@
 						<div class="header-div">High</div>
 						<div class="header-div">Critical</div>
 					</li>
+					{% for risk in entry.applications_risk_level %}
 					<li>
-					<div class="label-div">Binary: Client</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="empty-div"></div>
-					<div class="owasp-div">OWASP Top 10*</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Source Code: Client</div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="owasp-div">OWASP Top 10*</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Manual: Client</div>
-					<div class="empty-div"></div>
-					<div class="empty-div"></div>
-					<div class="owasp-div">OWASP Top 10*</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Network</div>
-					<div class="empty-div"></div>
-					<div class="empty-div"></div>
-					<div class="owasp-div">OWASP Top 10*</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Server API</div>
-					<div class="empty-div"></div>
-					<div class="empty-div"></div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">iOS</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Android</div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					
-					<li>
-					<div class="label-div">Windows</div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>			
-					</li>
-					<li>
-					<div class="label-div">BlackBerry</div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">False Positive Removal</div>
+						<div class="label-div">{{risk.title}}</div>	
+						{% if risk.low.checkedlow %}
+						
+							<div class="tick-mark">&#10004;</div>
+						{% elif risk.low.comment.length %}
+							<div class="owasp-div">OWASP Top 10*</div>
+						{% else %}
+						<div class="empty-div"></div>
+						{% endif %}
 
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
+						{% if risk.medium.checkedmedium %}
+						
+							<div class="tick-mark">&#10004;</div>
+						{% elif risk.medium.comment.length %}
+							<div class="owasp-div">OWASP Top 10*</div>
+						{% else %}
+						<div class="empty-div"></div>
+						{% endif %}
+
+						{% if risk.high.checkedhigh %}
+						
+							<div class="tick-mark">&#10004;</div>
+						{% elif risk.high.comment.length %}
+							<div class="owasp-div">OWASP Top 10*</div>
+						{% else %}
+						<div class="empty-div"></div>
+						{% endif %}
+
+						{% if risk.critical.checkedcritical%}
+						
+							<div class="tick-mark">&#10004;</div>
+						{% elif risk.critical.comment.length %}
+							<div class="owasp-div">OWASP Top 10*</div>
+						{% else %}
+						<div class="empty-div"></div>
+						{% endif %}						
+
 					</li>
-					<li>
-					<div class="label-div">Remediation Scan</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">Web Support</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
-					<li>
-					<div class="label-div">TAM Support</div>
-					<div class="empty-div"></div>
-					<div class="empty-div"></div>
-					<div class="tick-mark">&#10004;</div>
-					<div class="tick-mark">&#10004;</div>
-					</li>
+					{% endfor %}
+					
+					<!-- <li>
+						<div class="owasp-div">OWASP Top 10*</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="label-div">Source Code: Client</div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="owasp-div">OWASP Top 10*</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Manual: Client</div>
+						<div class="empty-div"></div>
+						<div class="empty-div"></div>
+						<div class="owasp-div">OWASP Top 10*</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Network</div>
+						<div class="empty-div"></div>
+						<div class="empty-div"></div>
+						<div class="owasp-div">OWASP Top 10*</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Server API</div>
+						<div class="empty-div"></div>
+						<div class="empty-div"></div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">iOS</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Android</div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						
+						<li>
+						<div class="label-div">Windows</div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>			
+						</li>
+						<li>
+						<div class="label-div">BlackBerry</div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">False Positive Removal</div>
+
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Remediation Scan</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">Web Support</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+						</li>
+						<li>
+						<div class="label-div">TAM Support</div>
+						<div class="empty-div"></div>
+						<div class="empty-div"></div>
+						<div class="tick-mark">&#10004;</div>
+						<div class="tick-mark">&#10004;</div>
+					</li> -->
 				</ul>
 			</div>
 			</div>
 			
 		</div>
 		<center>
-		<div class="bottom-text"  style="padding:23px; font-family: Myriad Pro; font-size: 12px;">
+		<div class="bottom-text">
 			* Top threats recognized by the Open Web Application Security Project
 		</div>
 		</center>

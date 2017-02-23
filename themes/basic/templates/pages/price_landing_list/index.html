@@ -38,12 +38,6 @@
 				</div>
 			</li>
 			{% endfor %}
-			<!-- <li class="pricing-table-li">s</li>
-			<li class="pricing-table-li">s</li>
-			<li class="pricing-table-li">s</li>
-			<li class="pricing-table-li">s</li>
-			<li class="pricing-table-li">s</li>
-			<li class="pricing-table-li">s</li> -->
 
 		</ul>
 	</div>
@@ -77,7 +71,7 @@
 					
 						<ul class=  "product-list-ul">
 						{% for contentval in myval.linkgroup %}
-							<li>{{contentval.title}}</li>
+							<li><a style="color: white;" href="javascript:void(0);">{{contentval.title}}</a></li>
 						{% endfor %}
 							
 						</ul>
@@ -92,7 +86,7 @@
 			<div class="product-list-items">
 					<ul class=  "product-list-ul">
 					{% for logoval in entry.bottomlistgroup.logoimggroup.logoimg %}
-						<li class="connect-li"><img src="{{getAssetUrl(logoval)}}"/></li>					
+						<li class="connect-li"><a href="javascript:void(0);"><img src="{{getAssetUrl(logoval)}}"></a></li>					
 					{% endfor %}
 					</ul>
 				</div>		

@@ -7,7 +7,7 @@
 			<div class="marketing-banner-text">{{entry.bannergroup.bannertext}}</div>
 			<div class="banner-img"></div>
 			<div class="marketing-banner-small-text" >{{entry.bannergroup.bannersmalltext}}</div>
-			<div class="toggle-button"><div class="down-arrow" data-toggle="collapse" data-target="#tg"></div></div>
+			<div class="toggle-button" ><div class="up-arrow" data-toggle="collapse" data-target="#tg"></div><div class="down-arrow" data-toggle="collapse" data-target="#tg"></div></div>
 			<div id="tg" class="toggle-div collapse">
 				<div class="toggle-upper-div">Build trustworthy applications</div>
 				<div class="toggle-small-text">We will work with you — whatever and wherever your business is</div>
@@ -36,10 +36,10 @@
 <div class="lower" >
 	
 		<div class="lower-div-1">
-			<h2>So what's in it for you?</h2>
+			<h2>{{entry.middletext.seewhatstext}}</h2>
 		</div>
 		<div class="lower-div-2">
-			<p>Here are a few benefits of the program</p>
+			<p>{{entry.middletext.benifitstext}}</p>
 		</div>
 		<div class="marketing-grid-div">
 			{% for gridval in entry.gridgroup %}
@@ -68,14 +68,14 @@
 	</div>
 
 	<div class="marketing-bottom-div">
-		<div class="fast-simple-text">Fast, simple and flexible makes our customers happy</div>
-		<div class="see-what-text">See what our partners are saying about this program</div>
+		<div class="fast-simple-text">{{entry.fastsimpletext.fastsimple}}</div>
+		<div class="see-what-text">{{entry.fastsimpletext.partnerstext}}</div>
 	</div>
 
 	<div class="marketing-logos">
 		<ul class="marketing-logo-ul">
 		{% for logoval in entry.marketinglogo.logo %}
-			<li><img src="{{getAssetUrl(logoval)}}" data-toggle="tooltip"></li>
+			<li id="{{loop.index}}"><img src="{{getAssetUrl(logoval)}}" data-toggle="tooltip"></li>
 		{% endfor %}
 		</ul>
 	</div>
@@ -98,7 +98,7 @@
 			</div>
 			<div class="info-text">	
 			
-			“Working with a broad base of customers, Avnet Technology Solutions sees a significant market need for a mobile development platform to address enterprise BYOD initiatives as organizations are realizing the internal need for developing, managing and deploying secure mobile apps to their mobile workforce.  By participating in the HP Anywhere Partner Program, we are able to expand our market opportunities by addressing enterprise mobility initiatives with comprehensive software — application lifecycle tools — and services solutions to complement the HP Anywhere platform and capabilities.”<br><br>
+			“Managing customers is our everyday routine, , managing and deploying secure mobile apps to their mobile workforce.  By participating in the HP Anywhere Partner Program, we are able to expand our market opportunities by addressing enterprise mobility initiatives with comprehensive software — application. Avnet Technology Solutions sees a significant market need for a mobile development platform to address enterprise BYOD initiatives as organizations are realizing the internal need for developinglifecycle tools — and services solutions to complement the HP Anywhere platform and capabilities.”<br><br>
 			<i>— Alex Ryals, vice president, pre-sales and solutions development for<br>
 	     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avnet Services in the Americas</i></div>
 		</div>

@@ -1,5 +1,5 @@
 {# If you have a "Content Type" for header in Built.io Contentstack then use get() view helper to retrieve header entry. #}
-{# e.g. set header = get("header_content_type_id") #}
+{% set header = get("header") %}
 {# And then render header values using the {{header.field_name}} #}
 {% set url = entry.url %}
 
@@ -7,10 +7,10 @@
 <div class="header ">
 	<div class="container ">
 		<div class="pronqlogo"> 
-			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+			<img  src="{{getAssetUrl(header.pronqlogo)}}">
 		</div>
 		<div class="questionimg">
-				<img class="question-img-tag"  src="{{getAssetUrl(entry.headergroup.questionimg)}}">
+				<img class="question-img-tag"  src="{{getAssetUrl(header.questionimg)}}">
 		</div>
 	</div>
 </div>
@@ -20,23 +20,24 @@
 <div class="header ">
 	<div class="container ">
 		<div class="pronqlogo"> 
-			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+			<a href="javascript:void(0);"><img  src="{{getAssetUrl(header.pronqlogo)}}"></a>
 		</div>
 		<div class="header-nav-bar">
 			<ul class="header-nav-ul">
-			{% for menuval in entry.headergroup.menuitemgroup.menuitem %}
-				<li>{{menuval}}</li>
+			{% for menuval in header.menuitemgroup.menuitem %}	
+				<li><a style="color: white;" href="javascript:void(0);">{{menuval}}</a></li>
 			{% endfor %}		
 			</ul>			
 		</div>
 		<div class="header-sign-in">
-			<span class="sign">{{entry.headergroup.signingroup.signintext}}</span><span class="icon"><img src="{{getAssetUrl(entry.headergroup.signingroup.usericon)}}"></span>
+			<span class="sign">{{header.signingroup.signintext}}</span><span class="icon"><img src="{{getAssetUrl(header.signingroup.usericon)}}"></span>
 		</div>
 		<div class="header-search">
+		<span class="img-holder"><a href="javascript:void(0);"><img src="{{getAssetUrl(header.pricesearchicon)}}"></a></span>
 			<input class="txtbox" type="text">
 		</div>
 		<div class="questionimg">
-				<img class="question-img-tag"  src="{{getAssetUrl(entry.headergroup.questionimg)}}">
+				<img class="question-img-tag"  src="{{getAssetUrl(header.questionimg)}}">
 		</div>
 	</div>
 </div>
@@ -47,12 +48,12 @@
 <div class="header">
 	<div class="container">
 		<div class="pronqlogo"> 
-			<img  src="{{getAssetUrl(entry.headergroup.pronqlogoimg)}}">
+			<img  src="{{getAssetUrl(header.pronqlogo)}}">
 		</div>
 
 		<div class="header-sign-in-marketing">
-			<span class="sign">{{entry.headergroup.sigintext}}</span>
-			<span class="free-acount-span"><button class="create-free-btn">{{entry.headergroup.btntext}}</button></span>
+			<span class="sign">{{header.signingroup.signintext}}</span>
+			<span class="free-acount-span"><button class="create-free-btn">{{header.btntextcreatefreeaccount}}</button></span>
 		</div>
 	</div>
 </div>
